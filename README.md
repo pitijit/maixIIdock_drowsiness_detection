@@ -30,5 +30,6 @@ eyes detection (opened/closed) with maix II dock board (M2dock).
    ![S__67854347_0](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/8795d27d-a0da-4b5c-b94b-5f0859f289fa)
    ![S__67854348_0](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/c670349a-1fa8-42a5-bc07-58213a9b83c4)<br />
 Video:<br />
-https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/4543fd23-7e79-4bf9-a1d3-8bdfd0b194b1
+https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/4543fd23-7e79-4bf9-a1d3-8bdfd0b194b1<br />
+https://youtube.com/shorts/LvFnWsxRuRs?feature=share
 
