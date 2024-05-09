@@ -52,17 +52,41 @@ class YOLOv2:
             img.draw_rectangle(box[0], box[1], box[0] + box[2], box[1] + box[3], color=(255, 255, 255), thickness=2)
             img.draw_string(box[0] + 2, box[1] + 2, msg, scale = 1.2, color = (255, 255, 255), thickness = 2)
 
+# Alert message
+alert_message = "Alert Message"
+
 def main():
     camera.config(size=input_size)
     yolov2 = YOLOv2(model, labels, anchors, input_size, (input_size[0] // 32, input_size[1] // 32))
     uart = init_uart()
     comm = Comm(uart)
+    closed_count = 0  # Initialize the count of "closed" labels
+    last_detection_time = time.time()  # Initialize the time of the last detection
     while True:
         img = camera.capture()
         boxes, probs = yolov2.run(img, nms=0.3, threshold=0.5)
         yolov2.draw(img, boxes, probs)
         comm.send_detect_result(boxes, probs, labels)
-        display.show(img)
+
+        # Check if the "closed" label is detected continuously
+        closed_detected = any(labels[prob[0]] == 'closed' for prob in probs)
+        if closed_detected:
+            closed_count += 1
+        else:
+            closed_count = 0
+
+        # Check if the "closed" label is detected three or more times continuously
+        if closed_count >= 3:
+            current_time = time.time()
+            if current_time - last_detection_time >= 3:  # Check if 3 seconds have elapsed since the last detection
+                # Draw the alert message on the image
+                img.draw_string(20, 10, "{}".format(alert_message), color=(255, 0, 0), scale=1.5, thickness=2)
+                display.show(img)  # Display the image with the alert message
+                last_detection_time = current_time  # Update the last detection time
+            else:
+                display.show(img)  # Show the original image if the condition is not met
+        else:
+            display.show(img)  # Show the original image if the condition is not met
 
 if __name__ == "__main__":
     try:
@@ -74,4 +98,4 @@ if __name__ == "__main__":
         img = image.new(size = (240, 240), color = (255, 0, 0), mode = "RGB")
         img.draw_string(0, 0, msg, scale = 0.8, color = (0, 0, 255), thickness = 1)
         display.show(img)
-        time.sleep(20)
+        time.sleep(30)
