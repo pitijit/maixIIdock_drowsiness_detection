@@ -5,8 +5,15 @@ Team Members:<br />
 6622040670 Onsasipat Kasamrach (SIIT)<br />
 6622040316 Pongpon Lapsatid (SIIT)
 
-eyes detection (opened/closed) with maix II dock board (M2dock).
+![Screenshot (987)](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/36162acf-c6ca-4c1e-85e2-00a3073f0090)
 
+eyes detection (opened/closed) with maix II dock board (M2dock).<br />
+Overview<br />
+![Overview_3Frames](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/52a969bb-512f-44aa-9d76-458f12fb8bcd)<br />
+Flowchart<br />
+![FlowChart_3Frame](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/df305e02-5f9f-4675-9579-b0a931b85120)<br />
+
+Model Training<br />
 1. Develop model for object detection with MaixHub.<br />
    1.1. Gather and organize the dataset for the object detection task.<br />
    ![Screenshot (992) - Copy](https://github.com/pitijit/maixIIdock_drowsiness_detection/assets/85090124/9b2662a3-bf30-4d83-85f1-5df9b0b1b255)
